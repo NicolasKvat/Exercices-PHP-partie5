@@ -13,13 +13,19 @@
       <header>
         <div class="row mb-4 p-4 bg-primary d-flex justify-content-center align-item-center">
           <h1 class="text-white m-2">Exercice 2</h1>
-          <h4 class="text-white m-4 text-center">Avec le tableau de l'exercice 1, afficher la valeur de la troisième ligne de ce tableau.</h4>
+          <h4 class="text-white m-4 text-center">Faire une page index.php. Tester sur cette page que le paramètre age existe et si c'est le cas l'afficher sinon le signaler : index.php?lastname=Nemare&firstname=Jean</h4>
         </div>
       </header>
       <p class="text-center">
         <?php
-          $months = [janvier, février, mars, avril, mai, juin, juillet, aout, septembre, octobre, novembre, décembre];
-          echo $months[2];
+            if (isset($_GET['firstname']) && isset($_GET['lastname']) && isset($_GET['age']))
+                {
+                    echo 'Bonjour ' . $_GET['firstname'] . ' ' . $_GET['lastname'] . ', tu as ' . $_GET['age'] . ' ans.';
+                }
+                    else 
+                {
+                    echo 'Il faut renseigner le nom, le prénom et l\'age.';
+                }
         ?>
       </p>
     </div>
